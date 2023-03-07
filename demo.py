@@ -7,9 +7,8 @@ def main():
     name = 'demo'
 
     det = Detector()
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture('dance_demo.mp4')
     fps = int(cap.get(5))
-    fps =60
     print('fps:', fps)
     t = int(1000/fps)
 
@@ -34,7 +33,7 @@ def main():
         # 写入图片
         videoWriter.write(result)
         cv2.imshow(name, result)
-        cv2.waitKey(t)
+        cv2.waitKey(int(0.5*t))
 
         if cv2.getWindowProperty(name, cv2.WND_PROP_AUTOSIZE) < 1:
             # 点x退出
